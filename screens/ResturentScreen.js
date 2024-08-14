@@ -2,6 +2,7 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../themes";
+import DishRow from "../components/dishRow";
 
 export default function ResturentScreen() {
   const { params } = useRoute();
@@ -32,7 +33,7 @@ export default function ResturentScreen() {
                 <Icon.Star height={"15"} width={"15"} stroke={"orange"} />
 
                 <Text className="text-green-700">
-                  {item.stars}
+                  {item.stars}{" "}
                   <Text className="text-xs text-gray-700">
                     ({item.reviews} reviews).
                     <Text className="font-bold">Fast Food</Text>
@@ -43,10 +44,20 @@ export default function ResturentScreen() {
                 <Icon.MapPin height={"15"} width={"15"} stroke={"gray"} />
 
                 <Text className="font-normal text-xs ">
-                  {" "}
-                  Nearby - {item.address}{" "}
+                  Nearby - {item.address}
                 </Text>
               </View>
+            </View>
+            <View className="flex-row p-2">
+              <Text className="font-normal text-xs ">{item.description}</Text>
+            </View>
+
+            <View className="pb-36 bg-white">
+              <Text className="px-4 py-4 text-2xl font-bold">Menu</Text>
+              {/* Dishes */}
+              {item.dishes.map((dish, index) => (
+                <DishRow />
+              ))}
             </View>
           </View>
         </View>
