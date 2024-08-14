@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../themes";
 import DishRow from "../components/dishRow";
+import CartIcon from "../components/cartIcon";
 
 export default function ResturentScreen() {
   const { params } = useRoute();
@@ -12,6 +13,7 @@ export default function ResturentScreen() {
 
   return (
     <View>
+      <CartIcon />
       <ScrollView>
         <View className="relative ">
           <Image className="w-full h-72" source={item.image} />
@@ -55,8 +57,9 @@ export default function ResturentScreen() {
             <View className="pb-36 bg-white">
               <Text className="px-4 py-4 text-2xl font-bold">Menu</Text>
               {/* Dishes */}
+
               {item.dishes.map((dish, index) => (
-                <DishRow />
+                <DishRow item={{ ...dish }} key={index} />
               ))}
             </View>
           </View>

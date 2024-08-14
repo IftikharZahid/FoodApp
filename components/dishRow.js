@@ -14,9 +14,8 @@ export default function DishRow({ item }) {
       <View className="flex flex-1 space-y-3">
         <View className="pl-3">
           <Text className="text-xl">{item.name}</Text>
-          <Text className="text-gray-700">{item.discription}</Text>
+          <Text className="text-gray-700">{item.description}</Text>
         </View>
-        item
         <View className="flex-row justify-between pl-3 items-center">
           <Text className="text-gray-700 text-lg font-bold">${item.price}</Text>
           <View className="flex-row items-center">
