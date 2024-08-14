@@ -13,6 +13,7 @@ export default function ResturentScreen() {
 
   return (
     <View>
+      // cart in restaurant screen bottom icon added
       <CartIcon />
       <ScrollView>
         <View className="relative ">
