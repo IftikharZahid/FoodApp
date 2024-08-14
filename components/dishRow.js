@@ -19,7 +19,9 @@ export default function DishRow({ item }) {
 
         <View className="flex-row justify-between pl-3 items-center">
           <Text className="text-gray-700 text-lg font-bold">${item.price}</Text>
+
           <View className="flex-row items-center">
+            {/* plus and minus buttons added */}
             <TouchableOpacity
               className="p-1 rounded-full"
               style={{ backgroundColor: themeColors.bgColor(1) }}
