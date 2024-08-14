@@ -9,8 +9,8 @@ import Categories from "../components/categories";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView className="bg-white pb-10">
-      {/* <StatusBar barStyle="dark-content"/> */}
+    <SafeAreaView className="bg-white pb-10 ">
+      {/* <StatusBar style={{backgroundColor:themeColors.bgColor(1)}} /> */}
 
       <View className="flex-row items-center space-x-2 px-4 pb-2">
         <View className="flex-row flex-1 items-center p-3 rounded-full border border-gray-500">

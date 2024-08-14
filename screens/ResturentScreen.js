@@ -1,5 +1,12 @@
 import { useRoute, useNavigation } from "@react-navigation/native";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  StatusBar,
+} from "react-native";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../themes";
 import DishRow from "../components/dishRow";
@@ -13,21 +20,24 @@ export default function ResturentScreen() {
 
   return (
     <View>
-      // cart in restaurant screen bottom icon added
+      {/*  cart in restaurant screen bottom icon added */}
+      <StatusBar style="light" />
       <CartIcon />
       <ScrollView>
         <View className="relative ">
           <Image className="w-full h-72" source={item.image} />
+
+          {/* ArrowBack button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
-            className="absolute top-14  bg-gray-50 p-2 rounded-full shadow"
+            className="absolute top-2  bg-gray-50 p-2 rounded-full shadow"
           >
             <Icon.ArrowLeft strokeWidth={3} stroke={themeColors.bgColor(1)} />
           </TouchableOpacity>
 
           <View
             style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-            className="bg-white -mt-12 pt-5"
+            className="bg-white -mt-8 pt-5"
           >
             <Text className="text-3xl font-bold ml-5">{item.name}</Text>
 
@@ -51,8 +61,8 @@ export default function ResturentScreen() {
                 </Text>
               </View>
             </View>
-            <View className="flex-row p-2">
-              <Text className="font-normal text-xs ">{item.description}</Text>
+            <View className="flex-row pb-2 pl-2">
+              <Text className="font-normal ">{item.description}</Text>
             </View>
 
             <View className="pb-36 bg-white">
