@@ -2,8 +2,24 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../themes";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  selectCartItemsById,
+} from "../slices/cartSlice";
 
 export default function DishRow({ item }) {
+  const dispatch = useDispatch();
+  const totalItems = useSelector(state =>
+    selectCartItemsById(state, item.id)
+  );
+  const handleIncrease = () => {
+    dispatch(addToCart({ ...item }));
+  };
+  const handleDecrease = () => {
+    dispatch(removeFromCart({ id: item.id }));
+  };
   return (
     <View className="flex-row items-center bg-gray-200 p-3 rounded-3xl shadow-2xl mb-3 mx-2">
       <Image
@@ -20,6 +36,7 @@ export default function DishRow({ item }) {
           <Text className="text-gray-700 text-lg font-bold">${item.price}</Text>
           <View className="flex-row items-center">
             <TouchableOpacity
+              onPress={handleDecrease}
               className="p-1 rounded-full"
               style={{ backgroundColor: themeColors.bgColor(1) }}
             >
@@ -30,8 +47,9 @@ export default function DishRow({ item }) {
                 width={20}
               />
             </TouchableOpacity>
-            <Text className="px-3">{2}</Text>
+            <Text className="px-3">{totalItems.length}</Text>
             <TouchableOpacity
+              onPress={handleIncrease}
               className="p-1 rounded-full"
               style={{ backgroundColor: themeColors.bgColor(1) }}
             >

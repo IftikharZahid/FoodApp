@@ -5,9 +5,11 @@ import MapView, { Marker } from "react-native-maps";
 import { featured } from "../constants";
 import { themeColors } from "../themes";
 import * as Icon from "react-native-feather";
+import { useSelector } from "react-redux";
+import { selectRestaurant } from "../slices/restaurantSlice";
 
 export default function DeliveryScreen() {
-  const restaurant = featured.restaurants[0]; // Access the first restaurant
+  const restaurant = useSelector(selectRestaurant); // Access the first restaurant
   const navigation = useNavigation();
 
   return (

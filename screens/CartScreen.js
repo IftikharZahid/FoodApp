@@ -6,10 +6,12 @@ import * as Icon from "react-native-feather";
 import RestaurantCard from "../components/restaurantCard";
 import { featured } from "../constants";
 import OrderPreparingScreen from "./OrderPreparingScreen";
+import { useSelector } from "react-redux";
+import { selectRestaurant } from "../slices/restaurantSlice";
 
 export default function CartScreen() {
   const navigation = useNavigation();
-  const restaurant = featured.restaurants[0];
+  const restaurant = useSelector(selectRestaurant);
 
   return (
     <View className="bg-white flex-1">
